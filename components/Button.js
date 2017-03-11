@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import {
 	View,
-	TouchableNativeFeedback,
-	Text
+	TouchableNativeFeedback
 } from 'react-native';
 
-export default class ScanScreen extends Component {
+export default class Button extends Component {
 	render () {
-		let {onPress} = this.props;
+		let {onPress, isRipple, rippleColor, children, style} = this.props;
 		return (
 			<View>
 				<TouchableNativeFeedback
 					onPress={onPress}
-					background={TouchableNativeFeedback.Ripple('#000000')}>
-					<View style={{width: 150, height: 100, backgroundColor: 'red'}}>
-						<Text style={{margin: 30}}>Button</Text>
+					background={isRipple ? TouchableNativeFeedback.Ripple(rippleColor || "#000000") : null}>
+					<View style={style}>
+						{children}
 					</View>
 				</TouchableNativeFeedback>
 			</View>
