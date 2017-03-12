@@ -14,7 +14,7 @@ export default class ScanScreen extends Component {
 	}
 
 	_onPressButton = () => {
-		alert('scan started');
+		console.log('scan started');
 	}
 
 	render () {
@@ -24,8 +24,8 @@ export default class ScanScreen extends Component {
 					<Text style={styles.logo}> Senfile </Text>
 				</View>
 				<View style={styles.buttonContainer}>
-					<Button isRipple onPress={this._onPressButton} style={{ width: 100, height: 50, justifyContent: "center",alignItems: "center"}} rippleColor="red">
-						<Text> Scan </Text>
+					<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#4FC3F7">
+						<Text style={{color: "#ffffff"}}> Scan </Text>
 					</Button>
 				</View>
 			</View>
@@ -48,5 +48,12 @@ let styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		flex: 1
+	},
+	scanButton: { 
+		width: 100,
+		height: 50,
+		justifyContent: "center",
+		alignItems: "center",
+		backgroundColor: "#03A9F4"
 	}
 })
