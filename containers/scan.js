@@ -3,7 +3,9 @@ import {
 	View,
 	Text,
 	StyleSheet,
-	Image
+	Image,
+	Animated,
+	Easing
 } from 'react-native';
 
 import {Button} from '../components'
@@ -12,19 +14,42 @@ export default class ScanScreen extends Component {
 
 	constructor (props) {
 		super(props);
+		this.scale = new Animated.Value(0)
+	}
+
+	imageBounce = () => {
+		this.scale.setValue(0);
+		Animated.spring(
+			this.scale,
+			{
+				toValue: 1,
+				duration: 1000,
+				easing: Easing.linear
+			}
+		).start();
 	}
 
 	_onPressButton = () => {
 		console.log('scan started');
 	}
 
+	componentDidMount () {
+		this.imageBounce();
+	}
+
 	render () {
+
+		const scale = this.scale.interpolate({
+			inputRange: [0, 1],
+			outputRange: [0.8, 1.1]
+		});
+
 		return (
 			<View style={styles.container}>
 				<View style={styles.logoContainer}>
 					<Text style={styles.logo}> Senfile... </Text>
 					<Text style={styles.tagline}> Scan QR code to proceed </Text>
-					<Image source={require('../assets/qrcode.png')} />
+					<Animated.Image style={{transform: [{scale: scale}]}} source={require('../assets/qrcode.png')} />
 				</View>
 				<View style={styles.buttonContainer}>
 					<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#4FC3F7">
