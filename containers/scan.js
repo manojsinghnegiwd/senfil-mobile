@@ -14,19 +14,32 @@ export default class ScanScreen extends Component {
 
 	constructor (props) {
 		super(props);
-		this.scale = new Animated.Value(0)
+		this.scale = new Animated.Value(0);
+		this.scanButton = new Animated.Value(0);
 	}
 
 	imageBounce = () => {
 		this.scale.setValue(0);
-		Animated.spring(
+		return Animated.spring(
 			this.scale,
 			{
 				toValue: 1,
 				duration: 1000,
 				easing: Easing.linear
 			}
-		).start();
+		);
+	}
+
+	fadeInButton = () => {
+		this.scanButton.setValue(0);
+		return Animated.timing(
+			this.scanButton,
+			{
+				toValue: 1,
+				duation: 5500,
+				easing: Easing.linear
+			}
+		);
 	}
 
 	_onPressButton = () => {
@@ -34,7 +47,10 @@ export default class ScanScreen extends Component {
 	}
 
 	componentDidMount () {
-		this.imageBounce();
+		Animated.sequence([
+			this.imageBounce(),
+			this.fadeInButton()
+		]).start();
 	}
 
 	render () {
@@ -44,6 +60,11 @@ export default class ScanScreen extends Component {
 			outputRange: [0.8, 1.1]
 		});
 
+		const scanButton = this.scanButton.interpolate({
+			inputRange: [0, 1],
+			outputRange: [0, 1]
+		});
+
 		return (
 			<View style={styles.container}>
 				<View style={styles.logoContainer}>
@@ -51,11 +72,11 @@ export default class ScanScreen extends Component {
 					<Text style={styles.tagline}> Scan QR code to proceed </Text>
 					<Animated.Image style={{transform: [{scale: scale}]}} source={require('../assets/qrcode.png')} />
 				</View>
-				<View style={styles.buttonContainer}>
-					<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#4FC3F7">
+				<Animated.View style={[styles.buttonContainer, {opacity: scanButton}]}>
+					<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#81D4FA">
 						<Text style={{color: "#ffffff"}}> Scan </Text>
 					</Button>
-				</View>
+				</Animated.View>
 			</View>
 		)
 	}
