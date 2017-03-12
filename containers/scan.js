@@ -19,18 +19,34 @@ export default class ScanScreen extends Component {
 
 	render () {
 		return (
-			<View style={{justifyContent: "center"}}>
-				<Text style={styles.logo}> Senfile </Text>
-				<Button isRipple onPress={this._onPressButton} style={{ width: 100, height: 50, justifyContent: "center",alignItems: "center"}} rippleColor="red">
-					<Text> Scan </Text>
-				</Button>
+			<View style={styles.container}>
+				<View style={styles.logoContainer}>
+					<Text style={styles.logo}> Senfile </Text>
+				</View>
+				<View style={styles.buttonContainer}>
+					<Button isRipple onPress={this._onPressButton} style={{ width: 100, height: 50, justifyContent: "center",alignItems: "center"}} rippleColor="red">
+						<Text> Scan </Text>
+					</Button>
+				</View>
 			</View>
 		)
 	}
 }
 
 let styles = StyleSheet.create({
+	container: {
+		flexDirection: 'column',
+		flexGrow: 1
+	},
+	logoContainer: {
+		flex: 3
+	},
 	logo: {
 		fontSize: 40
+	},
+	buttonContainer: {
+		justifyContent: 'center',
+		backgroundColor: 'red',
+		flex: 1
 	}
 })

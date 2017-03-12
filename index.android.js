@@ -16,11 +16,18 @@ import ScanScreen from './containers/scan.js';
 export default class mobile extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <ScanScreen />
       </View>
     );
   }
 }
+
+let styles = StyleSheet.create({
+  container: {
+    flexDirection: 'column',
+    flexGrow: 1
+  }
+})
 
 AppRegistry.registerComponent('mobile', () => mobile);
