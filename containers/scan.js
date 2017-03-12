@@ -8,7 +8,7 @@ import {
 	Easing
 } from 'react-native';
 
-import {Button} from '../components'
+import {Button} from '../components';
 
 export default class ScanScreen extends Component {
 
