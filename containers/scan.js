@@ -22,6 +22,7 @@ export default class ScanScreen extends Component {
 			<View style={styles.container}>
 				<View style={styles.logoContainer}>
 					<Text style={styles.logo}> Senfile </Text>
+					<Text style={styles.tagline}> Scan QR code to proceed </Text>
 				</View>
 				<View style={styles.buttonContainer}>
 					<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#4FC3F7">
@@ -39,10 +40,18 @@ let styles = StyleSheet.create({
 		flexGrow: 1
 	},
 	logoContainer: {
-		flex: 3
+		flex: 3,
+		backgroundColor: '#03A9F4',
+		alignItems: 'center',
+		justifyContent: 'space-around'
 	},
 	logo: {
-		fontSize: 40
+		fontSize: 40,
+		color: "#ffffff"
+	},
+	tagline: {
+		color: '#ffffff',
+		fontSize: 25
 	},
 	buttonContainer: {
 		justifyContent: 'center',
