@@ -1,24 +1,36 @@
 import React, { Component } from 'react';
 import {
 	View,
-	Text
+	Text,
+	StyleSheet
 } from 'react-native';
 
 import {Button} from '../components'
 
 export default class ScanScreen extends Component {
 
+	constructor (props) {
+		super(props);
+	}
+
 	_onPressButton = () => {
-		console.log('hello');
+		alert('scan started');
 	}
 
 	render () {
 		return (
-			<View>
-				<Button isRipple onPress={this._onPressButton} style={{ width: 100, height: 50}} rippleColor="red">
-					<Text> Button </Text>
+			<View style={{justifyContent: "center"}}>
+				<Text style={styles.logo}> Senfile </Text>
+				<Button isRipple onPress={this._onPressButton} style={{ width: 100, height: 50, justifyContent: "center",alignItems: "center"}} rippleColor="red">
+					<Text> Scan </Text>
 				</Button>
 			</View>
 		)
 	}
 }
+
+let styles = StyleSheet.create({
+	logo: {
+		fontSize: 40
+	}
+})
