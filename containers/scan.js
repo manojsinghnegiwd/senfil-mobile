@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
 	View,
 	Text,
-	StyleSheet
+	StyleSheet,
+	Image
 } from 'react-native';
 
 import {Button} from '../components'
@@ -21,8 +22,9 @@ export default class ScanScreen extends Component {
 		return (
 			<View style={styles.container}>
 				<View style={styles.logoContainer}>
-					<Text style={styles.logo}> Senfile </Text>
+					<Text style={styles.logo}> Senfile... </Text>
 					<Text style={styles.tagline}> Scan QR code to proceed </Text>
+					<Image source={require('../assets/qrcode.png')} />
 				</View>
 				<View style={styles.buttonContainer}>
 					<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#4FC3F7">
