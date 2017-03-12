@@ -46,7 +46,7 @@ let styles = StyleSheet.create({
 	},
 	buttonContainer: {
 		justifyContent: 'center',
-		backgroundColor: 'red',
+		alignItems: 'center',
 		flex: 1
 	}
 })
