@@ -75,7 +75,7 @@ export default class ScanScreen extends Component {
 					<Animated.Image style={{transform: [{scale: scale}]}} source={require('../assets/qrcode.png')} />
 				</View>
 				<Animated.View style={[styles.buttonContainer, {opacity: scanButton}]}>
-					<TextInput underlineColorAndroid='rgba(0,0,0,0)' style={styles.addressInput} onChangeText={(address) => this.setState({address})} value={this.state.address} />
+					<TextInput placeholder="Your ip address" underlineColorAndroid='rgba(0,0,0,0)' style={styles.addressInput} onChangeText={(address) => this.setState({address})} value={this.state.address} />
 					<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#81D4FA">
 						<Text style={{color: "#ffffff"}}> Scan </Text>
 					</Button>
@@ -121,6 +121,7 @@ let styles = StyleSheet.create({
 		height: 40,
 		borderWidth: 1,
 		borderColor: "#a8a8a8",
-		borderRadius: 5
+		borderRadius: 5,
+		padding: 10
 	}
 })
