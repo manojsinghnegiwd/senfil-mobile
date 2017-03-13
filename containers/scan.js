@@ -5,7 +5,8 @@ import {
 	StyleSheet,
 	Image,
 	Animated,
-	Easing
+	Easing,
+	TextInput
 } from 'react-native';
 
 import {Button} from '../components';
@@ -16,6 +17,7 @@ export default class ScanScreen extends Component {
 		super(props);
 		this.scale = new Animated.Value(0);
 		this.scanButton = new Animated.Value(0);
+		this.state = {address: ''}
 	}
 
 	imageBounce = () => {
@@ -73,6 +75,7 @@ export default class ScanScreen extends Component {
 					<Animated.Image style={{transform: [{scale: scale}]}} source={require('../assets/qrcode.png')} />
 				</View>
 				<Animated.View style={[styles.buttonContainer, {opacity: scanButton}]}>
+					<TextInput underlineColorAndroid='rgba(0,0,0,0)' style={styles.addressInput} onChangeText={(address) => this.setState({address})} value={this.state.address} />
 					<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#81D4FA">
 						<Text style={{color: "#ffffff"}}> Scan </Text>
 					</Button>
@@ -102,15 +105,22 @@ let styles = StyleSheet.create({
 		fontSize: 25
 	},
 	buttonContainer: {
-		justifyContent: 'center',
-		alignItems: 'center',
-		flex: 1
+		justifyContent: 'space-between',
+		flex: 1,
+		padding: 10
 	},
-	scanButton: { 
-		width: 100,
-		height: 50,
+	scanButton: {
 		justifyContent: "center",
 		alignItems: "center",
-		backgroundColor: "#03A9F4"
+		backgroundColor: "#03A9F4",
+		height: 50,
+		marginTop: 10,
+		borderRadius: 5
+	},
+	addressInput: {
+		height: 40,
+		borderWidth: 1,
+		borderColor: "#a8a8a8",
+		borderRadius: 5
 	}
 })
