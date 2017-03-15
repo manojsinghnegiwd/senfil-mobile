@@ -25,8 +25,7 @@ export default class mobile extends Component {
 
 let styles = StyleSheet.create({
   container: {
-    flexDirection: 'column',
-    flexGrow: 1
+    flex: 1
   }
 })
 

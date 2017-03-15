@@ -88,9 +88,11 @@ export default class ScanScreen extends Component {
 						onChangeText={(address) => this.setState({address})}
 						value={this.state.address}
 						keyboardType="numeric"/>
-					<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#81D4FA">
-						<Text style={{color: "#ffffff"}}> Connect </Text>
-					</Button>
+					<View>
+						<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#81D4FA">
+							<Text style={{color: "#ffffff"}}> Connect </Text>
+						</Button>
+					</View>
 				</Animated.View>
 			</View>
 		)
@@ -100,7 +102,7 @@ export default class ScanScreen extends Component {
 let styles = StyleSheet.create({
 	container: {
 		flexDirection: 'column',
-		flexGrow: 1
+		flex: 1
 	},
 	logoContainer: {
 		flex: 3,
@@ -117,9 +119,11 @@ let styles = StyleSheet.create({
 		fontSize: 25
 	},
 	buttonContainer: {
-		justifyContent: 'space-between',
+		// justifyContent: 'center',
 		flex: 1,
-		padding: 10
+		paddingTop: 20,
+		paddingLeft: 10,
+		paddingRight: 10
 	},
 	scanButton: {
 		justifyContent: "center",
