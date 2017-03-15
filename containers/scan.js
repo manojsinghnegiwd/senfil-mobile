@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 import {Button} from '../components';
+import Routes from '../constants/routes';
 
 export default class ScanScreen extends Component {
 
@@ -47,7 +48,7 @@ export default class ScanScreen extends Component {
 	}
 
 	_onPressButton = () => {
-		console.log('scan started');
+		this.props.navigator.push(Routes[1]);
 	}
 
 	_exit = () => {
