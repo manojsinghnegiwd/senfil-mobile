@@ -75,8 +75,8 @@ export default class ScanScreen extends Component {
 		return (
 			<View style={styles.container}>
 				<View style={styles.logoContainer}>
-					<Text style={styles.logo}> Senfile... </Text>
-					<Text style={styles.tagline}> Scan QR code to proceed </Text>
+					<Text style={styles.logo}> Senfil </Text>
+					<Text style={styles.tagline}> Enter Desktop IP Address </Text>
 					<Animated.Image style={{transform: [{scale: scale}]}} source={require('../assets/qrcode.png')} />
 				</View>
 				<Animated.View style={[styles.buttonContainer, {opacity: scanButton}]}>
