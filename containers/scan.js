@@ -82,6 +82,7 @@ export default class ScanScreen extends Component {
 				<Animated.View style={[styles.buttonContainer, {opacity: scanButton}]}>
 					<TextInput
 						placeholder="Your ip address"
+						placeholderTextColor="#a7a7a7"
 						underlineColorAndroid='rgba(0,0,0,0)'
 						style={styles.addressInput}
 						onChangeText={(address) => this.setState({address})}
@@ -89,9 +90,6 @@ export default class ScanScreen extends Component {
 						keyboardType="numeric"/>
 					<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#81D4FA">
 						<Text style={{color: "#ffffff"}}> Connect </Text>
-					</Button>
-					<Button isRipple onPress={this._exit} style={styles.scanButton} rippleColor="#81D4FA">
-						<Text style={{color: "#ffffff"}}> Cancel </Text>
 					</Button>
 				</Animated.View>
 			</View>
