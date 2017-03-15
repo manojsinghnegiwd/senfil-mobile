@@ -133,8 +133,9 @@ let styles = StyleSheet.create({
 	},
 	addressInput: {
 		height: 40,
-		borderWidth: 1,
-		borderColor: "#a8a8a8",
+		// borderWidth: 1,
+		// borderColor: "#a8a8a8",
+		backgroundColor: "#e0e0e0",
 		borderRadius: 5,
 		padding: 10
 	}
