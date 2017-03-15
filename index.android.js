@@ -25,7 +25,8 @@ export default class mobile extends Component {
 
 let styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    flexWrap: 'wrap'
   }
 })
 

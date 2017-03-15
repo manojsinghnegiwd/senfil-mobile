@@ -77,7 +77,7 @@ export default class ScanScreen extends Component {
 				<View style={styles.logoContainer}>
 					<Text style={styles.logo}> Senfil </Text>
 					<Text style={styles.tagline}> Enter Desktop IP Address </Text>
-					<Animated.Image style={{transform: [{scale: scale}]}} source={require('../assets/qrcode.png')} />
+					<Animated.Image style={{transform: [{scale: scale}], width: 100, height: 100}} source={require('../assets/desktop.png')} />
 				</View>
 				<Animated.View style={[styles.buttonContainer, {opacity: scanButton}]}>
 					<TextInput
@@ -119,7 +119,6 @@ let styles = StyleSheet.create({
 		fontSize: 25
 	},
 	buttonContainer: {
-		// justifyContent: 'center',
 		flex: 1,
 		paddingTop: 20,
 		paddingLeft: 10,
