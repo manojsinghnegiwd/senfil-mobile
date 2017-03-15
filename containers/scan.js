@@ -81,7 +81,7 @@ export default class ScanScreen extends Component {
 				</View>
 				<Animated.View style={[styles.buttonContainer, {opacity: scanButton}]}>
 					<TextInput
-						placeholder="Your ip address"
+						placeholder="Your IP Address"
 						placeholderTextColor="#a7a7a7"
 						underlineColorAndroid='rgba(0,0,0,0)'
 						style={styles.addressInput}
