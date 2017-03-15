@@ -6,7 +6,8 @@ import {
 	Image,
 	Animated,
 	Easing,
-	TextInput
+	TextInput,
+	BackAndroid
 } from 'react-native';
 
 import {Button} from '../components';
@@ -48,6 +49,10 @@ export default class ScanScreen extends Component {
 		console.log('scan started');
 	}
 
+	_exit = () => {
+		BackAndroid.exitApp();
+	}
+
 	componentDidMount () {
 		Animated.sequence([
 			this.imageBounce(),
@@ -75,9 +80,18 @@ export default class ScanScreen extends Component {
 					<Animated.Image style={{transform: [{scale: scale}]}} source={require('../assets/qrcode.png')} />
 				</View>
 				<Animated.View style={[styles.buttonContainer, {opacity: scanButton}]}>
-					<TextInput placeholder="Your ip address" underlineColorAndroid='rgba(0,0,0,0)' style={styles.addressInput} onChangeText={(address) => this.setState({address})} value={this.state.address} />
+					<TextInput
+						placeholder="Your ip address"
+						underlineColorAndroid='rgba(0,0,0,0)'
+						style={styles.addressInput}
+						onChangeText={(address) => this.setState({address})}
+						value={this.state.address}
+						keyboardType="numeric"/>
 					<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#81D4FA">
-						<Text style={{color: "#ffffff"}}> Scan </Text>
+						<Text style={{color: "#ffffff"}}> Connect </Text>
+					</Button>
+					<Button isRipple onPress={this._exit} style={styles.scanButton} rippleColor="#81D4FA">
+						<Text style={{color: "#ffffff"}}> Cancel </Text>
 					</Button>
 				</Animated.View>
 			</View>
@@ -113,7 +127,7 @@ let styles = StyleSheet.create({
 		justifyContent: "center",
 		alignItems: "center",
 		backgroundColor: "#03A9F4",
-		height: 50,
+		height: 45,
 		marginTop: 10,
 		borderRadius: 5
 	},
