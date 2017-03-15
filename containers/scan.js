@@ -7,7 +7,8 @@ import {
 	Animated,
 	Easing,
 	TextInput,
-	BackAndroid
+	BackAndroid,
+	StatusBar
 } from 'react-native';
 
 import {Button} from '../components';
@@ -58,6 +59,8 @@ export default class ScanScreen extends Component {
 			this.imageBounce(),
 			this.fadeInButton()
 		]).start();
+		// change status bar color
+		StatusBar.setBackgroundColor("#303F9F");
 	}
 
 	render () {
@@ -106,7 +109,7 @@ let styles = StyleSheet.create({
 	},
 	logoContainer: {
 		flex: 3,
-		backgroundColor: '#03A9F4',
+		backgroundColor: '#303F9F',
 		alignItems: 'center',
 		justifyContent: 'space-around'
 	},
@@ -122,12 +125,12 @@ let styles = StyleSheet.create({
 		flex: 1,
 		paddingTop: 20,
 		paddingLeft: 10,
-		paddingRight: 10
+		paddingRight: 10,
 	},
 	scanButton: {
 		justifyContent: "center",
 		alignItems: "center",
-		backgroundColor: "#03A9F4",
+		backgroundColor: "#7E57C2",
 		height: 45,
 		marginTop: 10,
 		borderRadius: 5
@@ -137,5 +140,6 @@ let styles = StyleSheet.create({
 		backgroundColor: "#e0e0e0",
 		borderRadius: 5,
 		padding: 10,
+		color: "#607D8B"
 	}
 })
