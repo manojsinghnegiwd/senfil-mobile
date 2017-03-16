@@ -4,12 +4,16 @@ import {
 	Text,
 	StyleSheet
 } from 'react-native';
+import {Button} from '../components';
+import globalStyle from '../styles';
 
 export default class UploadScreen extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text>Upload</Text>
+        <Button style={globalStyle.button}>
+          <Text style={{color: "#ffffff"}}>Upload</Text>
+        </Button>
       </View>
     )
   }
@@ -18,6 +22,7 @@ export default class UploadScreen extends Component {
 let styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    padding: 10
   }
 });

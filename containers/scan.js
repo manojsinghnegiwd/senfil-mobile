@@ -14,6 +14,7 @@ import {
 
 import {Button} from '../components';
 import Routes from '../constants/routes';
+import globalStyle from '../styles';
 
 export default class ScanScreen extends Component {
 
@@ -102,7 +103,7 @@ export default class ScanScreen extends Component {
 					<View>
 						{isLoading ? <View style={styles.loading}>
 								<ActivityIndicator color="#7E57C2" size="large" animating={true} />
-							</View> : <Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#81D4FA">
+							</View> : <Button isRipple onPress={this._onPressButton} style={globalStyle.button} rippleColor="#81D4FA">
 							<Text style={{color: "#ffffff"}}> Connect </Text>
 						</Button>}
 					</View>
@@ -136,14 +137,6 @@ let styles = StyleSheet.create({
 		paddingTop: 20,
 		paddingLeft: 10,
 		paddingRight: 10,
-	},
-	scanButton: {
-		justifyContent: "center",
-		alignItems: "center",
-		backgroundColor: "#7E57C2",
-		height: 45,
-		marginTop: 10,
-		borderRadius: 5
 	},
 	loading: {
 		paddingTop: 20,
