@@ -95,6 +95,7 @@ export default class ScanScreen extends Component {
 						placeholderTextColor="#a7a7a7"
 						underlineColorAndroid='rgba(0,0,0,0)'
 						style={styles.addressInput}
+						editable={!isLoading}
 						onChangeText={(address) => this.setState({address})}
 						value={this.state.address}
 						keyboardType="numeric"/>
