@@ -22,7 +22,7 @@ export default class UploadScreen extends Component {
 let styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     padding: 10
   }
 });
