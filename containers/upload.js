@@ -11,7 +11,7 @@ export default class UploadScreen extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Button style={globalStyle.button}>
+        <Button style={globalStyle.button} isRipple rippleColor="#81D4FA">
           <Text style={{color: "#ffffff"}}>Upload</Text>
         </Button>
       </View>
