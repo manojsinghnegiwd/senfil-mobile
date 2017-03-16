@@ -13,6 +13,7 @@ import {
   Navigator
 } from 'react-native';
 import ScanScreen from './containers/scan';
+import UploadScreen from './containers/upload';
 import Routes from './constants/routes';
 
 export default class mobile extends Component {
@@ -22,9 +23,7 @@ export default class mobile extends Component {
       case 'Connect':
         return <ScanScreen navigator={navigator} />
       case 'Dash':
-        return <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#ffffff"}}>
-          <Text>Dashboard</Text>
-        </View>
+        return <UploadScreen navigator={navigator} />
       default :
         return <Text>No Route Found</Text>
     }

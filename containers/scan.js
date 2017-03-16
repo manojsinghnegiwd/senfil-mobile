@@ -49,10 +49,10 @@ export default class ScanScreen extends Component {
 	}
 
 	_onPressButton = () => {
-		// this.props.navigator.push(Routes[1]);
 		this.setState({
 			isLoading: true
 		})
+		this.props.navigator.push(Routes[1]);
 	}
 
 	_exit = () => {
