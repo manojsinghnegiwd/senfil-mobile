@@ -8,7 +8,8 @@ import {
 	Easing,
 	TextInput,
 	BackAndroid,
-	StatusBar
+	StatusBar,
+	ActivityIndicator
 } from 'react-native';
 
 import {Button} from '../components';
@@ -48,7 +49,10 @@ export default class ScanScreen extends Component {
 	}
 
 	_onPressButton = () => {
-		this.props.navigator.push(Routes[1]);
+		// this.props.navigator.push(Routes[1]);
+		this.setState({
+			isLoading: true
+		})
 	}
 
 	_exit = () => {
@@ -65,6 +69,8 @@ export default class ScanScreen extends Component {
 	}
 
 	render () {
+
+		const {isLoading} = this.state;
 
 		const scale = this.scale.interpolate({
 			inputRange: [0, 1],
@@ -93,9 +99,11 @@ export default class ScanScreen extends Component {
 						value={this.state.address}
 						keyboardType="numeric"/>
 					<View>
-						<Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#81D4FA">
+						{isLoading ? <View style={styles.loading}>
+								<ActivityIndicator color="#7E57C2" size="large" animating={true} />
+							</View> : <Button isRipple onPress={this._onPressButton} style={styles.scanButton} rippleColor="#81D4FA">
 							<Text style={{color: "#ffffff"}}> Connect </Text>
-						</Button>
+						</Button>}
 					</View>
 				</Animated.View>
 			</View>
@@ -135,6 +143,10 @@ let styles = StyleSheet.create({
 		height: 45,
 		marginTop: 10,
 		borderRadius: 5
+	},
+	loading: {
+		paddingTop: 20,
+		alignItems: "center"
 	},
 	addressInput: {
 		height: 40,
