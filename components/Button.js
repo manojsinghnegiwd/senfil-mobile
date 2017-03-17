@@ -8,7 +8,7 @@ export default class Button extends Component {
 	render () {
 		let {onPress, isRipple, rippleColor, children, style} = this.props;
 		return (
-			<View style={{flex: 1, alignSelf: 'stretch'}}>
+			<View>
 				<TouchableNativeFeedback
 					onPress={onPress}
 					background={isRipple ? TouchableNativeFeedback.Ripple(rippleColor || "#000000") : null}>

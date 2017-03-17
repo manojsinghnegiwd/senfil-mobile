@@ -9,15 +9,37 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
-import ScanScreen from './containers/scan.js';
+import ScanScreen from './containers/scan';
+import UploadScreen from './containers/upload';
+import Routes from './constants/routes';
 
 export default class mobile extends Component {
+
+  renderRoute = (route, navigator) => {
+    switch(route.title) {
+      case 'Connect':
+        return <ScanScreen navigator={navigator} />
+      case 'Dash':
+        return <UploadScreen navigator={navigator} />
+      default :
+        return <Text>No Route Found</Text>
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <ScanScreen />
+        <Navigator
+          initialRoute={Routes[0]}
+          initialRouteStack={Routes}
+          renderScene={this.renderRoute}
+          configureScene={(route, routeStack) =>
+            Navigator.SceneConfigs.FloatFromBottom
+          }
+        />
       </View>
     );
   }
