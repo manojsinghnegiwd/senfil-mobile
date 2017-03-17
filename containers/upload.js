@@ -2,17 +2,30 @@ import React, { Component } from 'react';
 import {
 	View,
 	Text,
-	StyleSheet
+	StyleSheet,
+	ListView
 } from 'react-native';
-import {Button} from '../components';
+import {Button, ClipBoardItem} from '../components';
 import globalStyle from '../styles';
 
 export default class UploadScreen extends Component {
+	constructor(props) {
+		super(props);
+		const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+		this.state = {
+			clipBoardList: ds.cloneWithRows([{
+				text: 'Hello'
+			}])
+		};
+	}
   render () {
     return (
       <View style={styles.container}>
+				<ListView
+					dataSource={this.state.clipBoardList}
+					renderRow={(rowData) => <ClipBoardItem data={rowData} />}/>
         <Button style={globalStyle.button} isRipple rippleColor="#81D4FA">
-          <Text style={{color: "#ffffff"}}>Upload</Text>
+          <Text style={{color: "#ffffff"}}>Send</Text>
         </Button>
       </View>
     )
