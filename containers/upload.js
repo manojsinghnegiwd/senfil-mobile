@@ -21,6 +21,7 @@ export default class UploadScreen extends Component {
 
 let styles = StyleSheet.create({
   container: {
+		backgroundColor: "#ffffff",
     flex: 1,
     justifyContent: 'flex-end',
     padding: 10
