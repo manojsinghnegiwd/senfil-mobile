@@ -36,7 +36,12 @@ export default class UploadScreen extends Component {
 		const {clipBoardList, newItem, serverIp} = this.state;
     return (
       <View style={styles.container}>
-				<ToolbarAndroid style={globalStyle.toolbar} title={serverIp} titleColor="#ffffff" />
+				<ToolbarAndroid
+					style={globalStyle.toolbar}
+					title={serverIp}
+					titleColor="#ffffff"
+					actions={[{title: 'Disconnect', show: 'always'}]}
+					/>
 				<ListView
 					dataSource={this.state.clipBoardList}
 					renderRow={(rowData) => <ClipBoardItem data={rowData} />}/>
