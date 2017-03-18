@@ -12,12 +12,24 @@ export default class ClipBoardPage extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      newValue: ''
+      newValue: '',
+      height: 40
     }
   }
 
+  updateSize = (height) => {
+    this.setState({
+      height
+    });
+  }
+
   render () {
-    const {newValue} = this.state;
+    const {newValue, height} = this.state;
+
+    let newStyle = {
+      height
+    }
+
     return (
       <View style={styles.container}>
         <View style={styles.buttonContainer}>
@@ -26,11 +38,11 @@ export default class ClipBoardPage extends Component {
           placeholderTextColor="#a7a7a7"
           underlineColorAndroid='rgba(0,0,0,0)'
           onChangeText={(newValue) => this.setState({newValue})}
-          style={styles.addressInput}
+          style={[styles.addressInput, newStyle]}
           editable={true}
           multiline={true}
           value={newValue}
-          onContentSizeChange={(e) => console.log(e.nativeEvent)}
+          onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
           />
         </View>
       </View>
