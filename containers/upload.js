@@ -26,6 +26,8 @@ export default class UploadScreen extends Component {
   render () {
 		const {clipBoardList, newItem, serverIp, selectedPage} = this.state;
 
+		let pages = [{ content: (<Text>First page</Text>) }, { content: (<Text>Second page</Text>) }]
+
     return (
       <View style={styles.container}>
 				<ToolbarAndroid
@@ -34,10 +36,12 @@ export default class UploadScreen extends Component {
 					titleColor="#ffffff"
 					actions={[{title: 'Disconnect', show: 'always'}]}
 				/>
-				<ButtonToolbar tabStyle={styles.tabs} buttonTextColor="#ffffff" buttons={[{
+				<ButtonToolbar activeTab={selectedPage} tabActiveStyle={styles.tabsActive} tabStyle={styles.tabs} buttonTextColor="#ffffff" buttons={[{
 					text: 'Files',
+					onPress: () => this.updatePage(0)
 				},{
 					text: 'Clip Board',
+					onPress: () => this.updatePage(1)
 				}]} />
 				<ViewPagerAndroid
 		      style={styles.viewer}
@@ -72,6 +76,6 @@ let styles = StyleSheet.create({
 		backgroundColor: "#303F9F"
 	},
 	tabsActive: {
-		borderBottomWidth: 5
+		backgroundColor: "#7E57C2"
 	}
 });
