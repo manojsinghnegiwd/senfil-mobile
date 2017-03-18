@@ -73,7 +73,7 @@ let styles = StyleSheet.create({
     padding: 20,
   },
 	tabs: {
-		backgroundColor: "#303F9F"
+		backgroundColor: "#3949AB"
 	},
 	tabsActive: {
 		backgroundColor: "#283593"
