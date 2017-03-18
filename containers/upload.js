@@ -13,13 +13,19 @@ export default class UploadScreen extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			serverIp: "192.168.1.6"
+			serverIp: "192.168.1.6",
+			selectedPage: 0
 		};
 	}
 
+	updatePage = (position) => {
+		this.setState({selectedPage: position});
+		this.pager.setPage(position);
+	}
+
   render () {
-		console.log(this.state.clipBoardList);
-		const {clipBoardList, newItem, serverIp} = this.state;
+		const {clipBoardList, newItem, serverIp, selectedPage} = this.state;
+
     return (
       <View style={styles.container}>
 				<ToolbarAndroid
@@ -35,6 +41,8 @@ export default class UploadScreen extends Component {
 				}]} />
 				<ViewPagerAndroid
 		      style={styles.viewer}
+					ref={c => this.pager = c}
+					onPageSelected={(e) => this.updatePage(e.nativeEvent.position)}
 		      initialPage={0}>
 			      <View style={styles.pageStyle}>
 			        <Text>First page</Text>
