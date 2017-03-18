@@ -3,7 +3,8 @@ import {
 	View,
 	Text,
 	StyleSheet,
-	ToolbarAndroid
+	ToolbarAndroid,
+	ViewPagerAndroid
 } from 'react-native';
 import globalStyle from '../styles';
 
@@ -25,7 +26,17 @@ export default class UploadScreen extends Component {
 					title={serverIp}
 					titleColor="#ffffff"
 					actions={[{title: 'Disconnect', show: 'always'}]}
-					/>
+				/>
+					<ViewPagerAndroid
+			      style={styles.viewer}
+			      initialPage={0}>
+				      <View style={styles.pageStyle}>
+				        <Text>First page</Text>
+				      </View>
+				      <View style={styles.pageStyle}>
+				        <Text>Second page</Text>
+				      </View>
+			    </ViewPagerAndroid>
       </View>
     )
   }
@@ -35,5 +46,12 @@ let styles = StyleSheet.create({
   container: {
 		backgroundColor: "#ffffff",
     flex: 1
+  },
+	viewer: {
+		flex: 1
+	},
+	pageStyle: {
+    alignItems: 'center',
+    padding: 20,
   }
 });
