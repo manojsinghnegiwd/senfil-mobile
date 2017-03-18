@@ -17,7 +17,8 @@ export default class UploadScreen extends Component {
 		this.state = {
 			clipBoardList: ds.cloneWithRows([{
 				text: 'Hello'
-			}])
+			}]),
+			serverIp: "192.168.1.6"
 		};
 	}
 
@@ -32,10 +33,10 @@ export default class UploadScreen extends Component {
 
   render () {
 		console.log(this.state.clipBoardList);
-		const {clipBoardList, newItem} = this.state;
+		const {clipBoardList, newItem, serverIp} = this.state;
     return (
       <View style={styles.container}>
-				<ToolbarAndroid style={globalStyle.toolbar} title="AwesomeApp" />
+				<ToolbarAndroid style={globalStyle.toolbar} title={serverIp} titleColor="#ffffff" />
 				<ListView
 					dataSource={this.state.clipBoardList}
 					renderRow={(rowData) => <ClipBoardItem data={rowData} />}/>
