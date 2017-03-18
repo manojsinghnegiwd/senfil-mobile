@@ -36,7 +36,7 @@ export default class UploadScreen extends Component {
 					titleColor="#ffffff"
 					actions={[{title: 'Disconnect', show: 'always'}]}
 				/>
-				<ButtonToolbar activeTab={selectedPage} tabActiveStyle={styles.tabsActive} tabStyle={styles.tabs} buttonTextColor="#ffffff" buttons={[{
+				<ButtonToolbar rippleColor="#3949AB" activeTab={selectedPage} tabActiveStyle={styles.tabsActive} tabStyle={styles.tabs} buttonTextColor="#ffffff" buttons={[{
 					text: 'Files',
 					onPress: () => this.updatePage(0)
 				},{
@@ -76,6 +76,6 @@ let styles = StyleSheet.create({
 		backgroundColor: "#303F9F"
 	},
 	tabsActive: {
-		backgroundColor: "#7E57C2"
+		backgroundColor: "#283593"
 	}
 });
