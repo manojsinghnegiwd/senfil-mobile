@@ -137,6 +137,7 @@ let styles = StyleSheet.create({
 		paddingTop: 20,
 		paddingLeft: 10,
 		paddingRight: 10,
+		backgroundColor: '#ebedf0'
 	},
 	loading: {
 		paddingTop: 20,
