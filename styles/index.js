@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
 		marginTop: 10,
 		borderRadius: 5
 	},
+  toolbar: {
+    height: 56,
+    backgroundColor: "#303F9F"
+  }
 });
 
 export default styles;

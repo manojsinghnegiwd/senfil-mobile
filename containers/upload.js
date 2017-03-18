@@ -3,7 +3,9 @@ import {
 	View,
 	Text,
 	StyleSheet,
-	ListView
+	ListView,
+	TextInput,
+	ToolbarAndroid
 } from 'react-native';
 import {Button, ClipBoardItem} from '../components';
 import globalStyle from '../styles';
@@ -18,13 +20,27 @@ export default class UploadScreen extends Component {
 			}])
 		};
 	}
+
+	addToList = () => {
+		const {newItem} = this.state;
+		this.setState((prevState) => ({
+			clipBoardList: prevState.clipBoardList.cloneWithRows([{
+				text: newItem
+			}])
+		}))
+	}
+
   render () {
+		console.log(this.state.clipBoardList);
+		const {clipBoardList, newItem} = this.state;
     return (
       <View style={styles.container}>
+				<ToolbarAndroid style={globalStyle.toolbar} title="AwesomeApp" />
 				<ListView
 					dataSource={this.state.clipBoardList}
 					renderRow={(rowData) => <ClipBoardItem data={rowData} />}/>
-        <Button style={globalStyle.button} isRipple rippleColor="#81D4FA">
+				<TextInput value={newItem} onChangeText={(newItem) => this.setState({newItem})}/>
+        <Button onPress={this.addToList} style={globalStyle.button} isRipple rippleColor="#81D4FA">
           <Text style={{color: "#ffffff"}}>Send</Text>
         </Button>
       </View>
@@ -36,7 +52,6 @@ let styles = StyleSheet.create({
   container: {
 		backgroundColor: "#ffffff",
     flex: 1,
-    justifyContent: 'flex-end',
-    padding: 10
+    justifyContent: 'flex-end'
   }
 });
