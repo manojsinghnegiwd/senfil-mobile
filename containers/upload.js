@@ -28,6 +28,11 @@ export default class UploadScreen extends Component {
 					titleColor="#ffffff"
 					actions={[{title: 'Disconnect', show: 'always'}]}
 				/>
+				<ButtonToolbar tabStyle={styles.tabs} buttonTextColor="#ffffff" buttons={[{
+					text: 'Files',
+				},{
+					text: 'Clip Board',
+				}]} />
 				<ViewPagerAndroid
 		      style={styles.viewer}
 		      initialPage={0}>
@@ -38,11 +43,6 @@ export default class UploadScreen extends Component {
 			        <Text>Second page</Text>
 			      </View>
 		    </ViewPagerAndroid>
-				<ButtonToolbar buttons={[{
-					text: 'Files',
-				},{
-					text: 'Clip Board',
-				}]} />
       </View>
     )
   }
@@ -61,9 +61,9 @@ let styles = StyleSheet.create({
     padding: 20,
   },
 	tabs: {
-		backgroundColor: "red",
-		justifyContent: "center",
-		alignItems: "center",
-		height: 60
+		backgroundColor: "#303F9F"
+	},
+	tabsActive: {
+		borderBottomWidth: 5
 	}
 });
