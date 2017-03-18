@@ -7,6 +7,7 @@ import {
 	ViewPagerAndroid
 } from 'react-native';
 import {Button, ButtonToolbar} from '../components';
+import ClipBoardPage from './clipboardpage';
 import globalStyle from '../styles';
 
 export default class UploadScreen extends Component {
@@ -25,8 +26,6 @@ export default class UploadScreen extends Component {
 
   render () {
 		const {clipBoardList, newItem, serverIp, selectedPage} = this.state;
-
-		let pages = [{ content: (<Text>First page</Text>) }, { content: (<Text>Second page</Text>) }]
 
     return (
       <View style={styles.container}>
@@ -52,7 +51,7 @@ export default class UploadScreen extends Component {
 			        <Text>First page</Text>
 			      </View>
 			      <View style={styles.pageStyle}>
-			        <Text>Second page</Text>
+			        <ClipBoardPage />
 			      </View>
 		    </ViewPagerAndroid>
       </View>
