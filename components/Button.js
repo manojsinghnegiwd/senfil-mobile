@@ -12,7 +12,7 @@ export default class Button extends Component {
 				<TouchableNativeFeedback
 					onPress={onPress}
 					background={isRipple ? TouchableNativeFeedback.Ripple(rippleColor || "#000000") : null}>
-					<View style={[style]}>
+					<View style={style}>
 						{children}
 					</View>
 				</TouchableNativeFeedback>

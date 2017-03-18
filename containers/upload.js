@@ -6,6 +6,7 @@ import {
 	ToolbarAndroid,
 	ViewPagerAndroid
 } from 'react-native';
+import {Button, ButtonToolbar} from '../components';
 import globalStyle from '../styles';
 
 export default class UploadScreen extends Component {
@@ -27,16 +28,21 @@ export default class UploadScreen extends Component {
 					titleColor="#ffffff"
 					actions={[{title: 'Disconnect', show: 'always'}]}
 				/>
-					<ViewPagerAndroid
-			      style={styles.viewer}
-			      initialPage={0}>
-				      <View style={styles.pageStyle}>
-				        <Text>First page</Text>
-				      </View>
-				      <View style={styles.pageStyle}>
-				        <Text>Second page</Text>
-				      </View>
-			    </ViewPagerAndroid>
+				<ViewPagerAndroid
+		      style={styles.viewer}
+		      initialPage={0}>
+			      <View style={styles.pageStyle}>
+			        <Text>First page</Text>
+			      </View>
+			      <View style={styles.pageStyle}>
+			        <Text>Second page</Text>
+			      </View>
+		    </ViewPagerAndroid>
+				<ButtonToolbar buttons={[{
+					text: 'Files',
+				},{
+					text: 'Clip Board',
+				}]} />
       </View>
     )
   }
@@ -53,5 +59,11 @@ let styles = StyleSheet.create({
 	pageStyle: {
     alignItems: 'center',
     padding: 20,
-  }
+  },
+	tabs: {
+		backgroundColor: "red",
+		justifyContent: "center",
+		alignItems: "center",
+		height: 60
+	}
 });
