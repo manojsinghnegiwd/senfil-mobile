@@ -46,7 +46,7 @@ export default class ClipBoardPage extends Component {
           multiline={true}
           onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
           />
-          <Button isRipple onPress={this._onPressButton} style={globalStyle.button} rippleColor="#81D4FA">
+          <Button isRipple onPress={this._onPressButton} style={[globalStyle.button, styles.scanButton]} rippleColor="#81D4FA">
             <Text style={{color: "#ffffff"}}> Send To PC </Text>
           </Button>
         </View>
@@ -58,14 +58,18 @@ export default class ClipBoardPage extends Component {
 let styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignSelf: "stretch"
+    alignSelf: "stretch",
   },
   buttonContainer: {
 		flex: 1
 	},
+  scanButton: {
+    borderRadius: 0,
+    marginTop: 0
+  },
   addressInput: {
 		backgroundColor: "#e0e0e0",
-		borderRadius: 5,
+		// borderRadius: 5,
 		padding: 10,
 		color: "#607D8B"
 	}
