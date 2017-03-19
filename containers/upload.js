@@ -69,7 +69,6 @@ let styles = StyleSheet.create({
 	},
 	pageStyle: {
     alignItems: 'center',
-    padding: 20,
   },
 	tabs: {
 		backgroundColor: "#3949AB"

@@ -36,7 +36,7 @@ export default class ClipBoardPage extends Component {
       <View style={styles.container}>
         <View style={styles.buttonContainer}>
         <TextInput
-          placeholder="Your IP Address"
+          placeholder="Paste your text here"
           placeholderTextColor="#a7a7a7"
           underlineColorAndroid='rgba(0,0,0,0)'
           onChangeText={(newValue) => this.setState({newValue})}
