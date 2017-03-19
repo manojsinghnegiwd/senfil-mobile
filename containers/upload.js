@@ -7,6 +7,7 @@ import {
 	ViewPagerAndroid
 } from 'react-native';
 import {Button, ButtonToolbar} from '../components';
+import ClipBoardPage from './clipboardpage';
 import globalStyle from '../styles';
 
 export default class UploadScreen extends Component {
@@ -26,8 +27,6 @@ export default class UploadScreen extends Component {
   render () {
 		const {clipBoardList, newItem, serverIp, selectedPage} = this.state;
 
-		let pages = [{ content: (<Text>First page</Text>) }, { content: (<Text>Second page</Text>) }]
-
     return (
       <View style={styles.container}>
 				<ToolbarAndroid
@@ -36,7 +35,7 @@ export default class UploadScreen extends Component {
 					titleColor="#ffffff"
 					actions={[{title: 'Disconnect', show: 'always'}]}
 				/>
-				<ButtonToolbar activeTab={selectedPage} tabActiveStyle={styles.tabsActive} tabStyle={styles.tabs} buttonTextColor="#ffffff" buttons={[{
+				<ButtonToolbar rippleColor="#3949AB" activeTab={selectedPage} tabActiveStyle={styles.tabsActive} tabStyle={styles.tabs} buttonTextColor="#ffffff" buttons={[{
 					text: 'Files',
 					onPress: () => this.updatePage(0)
 				},{
@@ -52,7 +51,7 @@ export default class UploadScreen extends Component {
 			        <Text>First page</Text>
 			      </View>
 			      <View style={styles.pageStyle}>
-			        <Text>Second page</Text>
+			        <ClipBoardPage />
 			      </View>
 		    </ViewPagerAndroid>
       </View>
@@ -70,12 +69,11 @@ let styles = StyleSheet.create({
 	},
 	pageStyle: {
     alignItems: 'center',
-    padding: 20,
   },
 	tabs: {
-		backgroundColor: "#303F9F"
+		backgroundColor: "#3949AB"
 	},
 	tabsActive: {
-		backgroundColor: "#7E57C2"
+		backgroundColor: "#283593"
 	}
 });

@@ -10,7 +10,7 @@ import Button from './Button';
 export default class ButtonToolbar extends Component {
   render () {
 
-    let {buttons, buttonTextColor, tabStyle, tabActiveStyle, activeTab} = this.props;
+    let {buttons, buttonTextColor, tabStyle, tabActiveStyle, activeTab, rippleColor} = this.props;
 
 		let newStyle = [styles.tabs];
 
@@ -27,7 +27,7 @@ export default class ButtonToolbar extends Component {
         {buttons && buttons.length != 0 ? buttons.map((button, index) => {
           return (
             <View key={index} style={{flex:1}}>
-              <Button isRipple onPress={button.onPress} style={newStyle.concat( activeTab == index ? tabActiveStyle : [] )} rippleColor="#81D4FA">
+              <Button isRipple onPress={button.onPress} style={newStyle.concat( activeTab == index ? tabActiveStyle : [] )} rippleColor={rippleColor}>
                 <Text style={{color: buttonTextColor}}> {button.text} </Text>
               </Button>
             </View>
