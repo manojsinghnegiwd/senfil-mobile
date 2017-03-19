@@ -15,7 +15,7 @@ export default class ClipBoardPage extends Component {
     super(props);
     this.state = {
       newValue: '',
-      height: 40
+      height: 100
     }
   }
 
@@ -42,8 +42,8 @@ export default class ClipBoardPage extends Component {
           onChangeText={(newValue) => this.setState({newValue})}
           style={[styles.addressInput, newStyle]}
           editable={true}
-          multiline={true}
           value={newValue}
+          multiline={true}
           onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
           />
           <Button isRipple onPress={this._onPressButton} style={globalStyle.button} rippleColor="#81D4FA">
@@ -61,10 +61,7 @@ let styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   buttonContainer: {
-		flex: 1,
-		paddingTop: 20,
-		paddingLeft: 10,
-		paddingRight: 10
+		flex: 1
 	},
   addressInput: {
 		backgroundColor: "#e0e0e0",
