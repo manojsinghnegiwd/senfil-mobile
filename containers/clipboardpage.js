@@ -6,6 +6,8 @@ import {
   TextInput
 } from 'react-native';
 
+import {Button} from '../components';
+import globalStyle from '../styles';
 
 export default class ClipBoardPage extends Component {
 
@@ -44,6 +46,9 @@ export default class ClipBoardPage extends Component {
           value={newValue}
           onContentSizeChange={(e) => this.updateSize(e.nativeEvent.contentSize.height)}
           />
+          <Button isRipple onPress={this._onPressButton} style={globalStyle.button} rippleColor="#81D4FA">
+            <Text style={{color: "#ffffff"}}> Send To PC </Text>
+          </Button>
         </View>
       </View>
     )
