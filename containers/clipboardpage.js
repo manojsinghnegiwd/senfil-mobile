@@ -3,7 +3,8 @@ import {
   Text,
   StyleSheet,
   View,
-  TextInput
+  TextInput,
+  Clipboard
 } from 'react-native';
 
 import {Button} from '../components';
@@ -23,6 +24,11 @@ export default class ClipBoardPage extends Component {
     this.setState({
       height
     });
+  }
+
+  componentDidMount = () => {
+    Clipboard.getString()
+      .then((newValue) => this.setState({newValue}));
   }
 
   render () {
