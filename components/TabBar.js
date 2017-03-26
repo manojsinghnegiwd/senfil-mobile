@@ -7,7 +7,7 @@ import {
 
 import Button from './Button';
 
-export default class ButtonToolbar extends Component {
+export default class TabBar extends Component {
   render () {
 
     let {buttons, buttonTextColor, tabStyle, tabActiveStyle, activeTab, rippleColor} = this.props;
