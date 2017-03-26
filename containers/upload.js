@@ -7,7 +7,7 @@ import {
 	ViewPagerAndroid
 } from 'react-native';
 import {Button} from '../components';
-import TabBar from '../components';
+import {TabBar} from '../components';
 import ClipBoardPage from './clipboardpage';
 import globalStyle from '../styles';
 
