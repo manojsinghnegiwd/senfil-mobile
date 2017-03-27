@@ -1,9 +1,9 @@
 import Button from './Button';
 import ClipBoardItem from './ClipBoardItem';
-import ButtonToolbar from './ButtonToolbar';
+import TabBar from './TabBar';
 
 export {
 	Button,
 	ClipBoardItem,
-	ButtonToolbar
+	TabBar
 }

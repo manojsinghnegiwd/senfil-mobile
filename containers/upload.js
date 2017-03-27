@@ -6,7 +6,8 @@ import {
 	ToolbarAndroid,
 	ViewPagerAndroid
 } from 'react-native';
-import {Button, ButtonToolbar} from '../components';
+import {Button} from '../components';
+import {TabBar} from '../components';
 import ClipBoardPage from './clipboardpage';
 import globalStyle from '../styles';
 
@@ -35,7 +36,7 @@ export default class UploadScreen extends Component {
 					titleColor="#ffffff"
 					actions={[{title: 'Disconnect', show: 'always'}]}
 				/>
-				<ButtonToolbar rippleColor="#3949AB" activeTab={selectedPage} tabActiveStyle={styles.tabsActive} tabStyle={styles.tabs} buttonTextColor="#ffffff" buttons={[{
+				<TabBar rippleColor="#3949AB" activeTab={selectedPage} tabActiveStyle={styles.tabsActive} tabStyle={styles.tabs} buttonTextColor="#ffffff" buttons={[{
 					text: 'Files',
 					onPress: () => this.updatePage(0)
 				},{
